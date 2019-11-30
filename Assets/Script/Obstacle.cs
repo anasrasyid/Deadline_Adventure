@@ -4,16 +4,15 @@ using System.Collections;
 public abstract class Obstacle : MonoBehaviour
 {
     public float timer;
-    private float time;
-    protected AudioSource audio;
+    protected float time;
+    public AudioSource audio;
     public AudioClip enterAudio, exitAudio;
 
     private void Start()
     {
         time = timer;
         audio = GetComponent<AudioSource>();
-        //audio.clip = enterAudio;
-        //audio.Play();
+        EnterSound();
     }
 
     public bool DoTrouble()
@@ -29,7 +28,8 @@ public abstract class Obstacle : MonoBehaviour
 
     public abstract void Action();
 
-    IEnumerator SoundExit()
+
+    protected IEnumerator SoundExit()
     {
         audio.clip = exitAudio;
         audio.Play();
@@ -37,11 +37,12 @@ public abstract class Obstacle : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnMouseDrag()
+    public void EnterSound()
     {
-        if (audio == null)
-            gameObject.SetActive(false);
-        StartCoroutine(SoundExit());
+        audio.clip = enterAudio;
+        audio.Play();
     }
+
+    public abstract void Activeable();
     
 }

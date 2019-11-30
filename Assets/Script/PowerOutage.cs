@@ -4,43 +4,70 @@ using UnityEngine;
 public class PowerOutage : Obstacle
 {
     public GameObject panel;
-    public GameObject efector;
-    private float timeScreen = 1f;
+    public GameObject redPanel;
+    private float timeScreen = 2f;
+    private float times;
+    private bool isClose;
 
     public override void Action()
     {
+        redPanel.SetActive(false);
         panel.SetActive(true);
+        isClose = true;
     }
 
     IEnumerator StartSound()
     {
-        audio.clip = enterAudio;
-        audio.Play();
-        yield return new WaitForSeconds(audio.clip.length);
+        while (!isClose)
+        {
+            redPanel.active = !redPanel.active;
+            audio.clip = enterAudio;
+            audio.Play();
+            yield return new WaitForSeconds(audio.clip.length);
+        }
     }
     
     void Start()
     {
-        efector.GetComponent<Animator>().SetBool("outage", true);
-        StartCoroutine(StartSound());
+        Activeable();
     }
 
     void Update()
     {
-        if (DoTrouble())
+        if (times > 0 && !isClose)
         {
-            efector.GetComponent<Animator>().SetBool("outage", false);
-            StopCoroutine(StartSound());
-            panel.SetActive(true);
-        }else if (panel.active)
+            times -= Time.deltaTime;
+            if(times <= 0)
+            {
+                StopCoroutine(StartSound());
+                Action();
+            }
+        }
+        else if(isClose)
         {
             timeScreen -= Time.deltaTime;
             if (timeScreen <= 0)
             {
                 panel.SetActive(false);
-                timeScreen = 1f;
+                timeScreen = 2f;
+                isClose = false;
                 gameObject.SetActive(false);
             }
         }
+    }
+
+    private void OnMouseDrag()
+    {
+        if (audio == null)
+            gameObject.SetActive(false);
+        else
+            StartCoroutine(SoundExit());
+    }
+
+    public override void Activeable()
+    {
+        times = timer;
+        isClose = false;
+        StartCoroutine(StartSound());
     }
 }
