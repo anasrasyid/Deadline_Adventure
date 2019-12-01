@@ -22,6 +22,12 @@ public class Pie : MonoBehaviour
         float distCovered = (Time.time - startTime) * speed;
         float fractionJourney = distCovered / journeyLength;
         transform.position = Vector3.Lerp(transform.position, target.position,fractionJourney);
+        if (transform.position == target.position)
+        {
+            setPied(true);
+            // Delay for 1 Second and cannot work
+            setPied(false);
+        }
     }
 
     private void OnMouseDown()
@@ -29,12 +35,6 @@ public class Pie : MonoBehaviour
         if(transform.position != target.position)
         {
             Destroy(gameObject);
-        }
-        else if (transform.position == target.position)
-        {
-            setPied(true);
-            // Delay for 1 Second and cannot work
-            setPied(false);
         }
     }
 
