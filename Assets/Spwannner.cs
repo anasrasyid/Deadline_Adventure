@@ -10,7 +10,6 @@ public class Spwannner : MonoBehaviour
     private void Start()
     {
         times = Random.RandomRange(1, 3);
-        Debug.Log(times);
         StartCoroutine(Genearete());
     }
 

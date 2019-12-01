@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     private bool isBoost;
     private float _sizeBar;
     private bool _isSave;
+    public GameObject player;
 
     public UIManager uIManager;
     private GameManager _gameManager;
@@ -43,6 +44,7 @@ public class LevelManager : MonoBehaviour
         else if (barFill.value != 100)
         {
             _win = false;
+            player.active = false;
             Time.timeScale = 0;
             uIManager.ActiveCondPanel();
         }
@@ -58,6 +60,7 @@ public class LevelManager : MonoBehaviour
         if (barFill.value == 100)
         {
             _win = true;
+            player.active = false;
             _gameManager.coin += 100;
             Time.timeScale = 0;
             uIManager.ActiveCondPanel();

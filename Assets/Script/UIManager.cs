@@ -55,10 +55,11 @@ public class UIManager : MonoBehaviour
     {
         pausePanel.SetActive(false);
         CondPanel.SetActive(true);
+        Time.timeScale = 0;
         visualCoin(level.getGM().coin);
         if (level.getIsWin())
         {
-            contText.text = "File Has Been Accepted";
+            contText.text = "File Accepted";
             image.sprite = sprites[0];
         }
         else
@@ -78,13 +79,22 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         if (level.getIsWin())
         {
-            Debug.Log("Next Level");
             level.getGM().level++;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            int next = (SceneManager.GetActiveScene().buildIndex + 1);
+            //Debug.Log(level.getGM().level);
+            if(level.getGM().level >= 10)
+            {
+                SceneManager.LoadScene(4);
+            }
+            else {
+                if (next == 4)
+                    next = 1;
+                SceneManager.LoadScene(next);
+            }
+            
         }
         else
         {
-            Debug.Log("Restart Level");
             OnMainMenu();
         }
     }

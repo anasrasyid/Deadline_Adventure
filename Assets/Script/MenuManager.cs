@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
     private bool _isMute = false;
     private float _audioVolume;
 
-    // Start is called before the first frame update
+
     public void play()
     {
         SceneManager.LoadScene(sceneGameplay);

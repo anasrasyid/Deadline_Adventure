@@ -942,8 +942,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030518, y: -380}
-  m_SizeDelta: {x: 968.3, y: 140.7}
+  m_AnchoredPosition: {x: 0.000030518, y: -358.3}
+  m_SizeDelta: {x: 968.3, y: 271.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &992913589741893556
 CanvasRenderer:
@@ -984,9 +984,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Condition
-
-'
+  m_Text: File Accepted
 --- !u!1 &992913589835896725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,7 +1778,7 @@ Canvas:
   m_GameObject: {fileID: 992913590305811275}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1790,7 +1788,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 222
   m_TargetDisplay: 0
 --- !u!114 &992913590305811277
 MonoBehaviour:
