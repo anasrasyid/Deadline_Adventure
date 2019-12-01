@@ -8,7 +8,7 @@ public abstract class Obstacle : MonoBehaviour
     public AudioSource audio;
     public AudioClip enterAudio, exitAudio;
 
-    private void Start()
+    private void Awake()
     {
         time = timer;
         audio = GetComponent<AudioSource>();
