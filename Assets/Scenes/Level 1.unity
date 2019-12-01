@@ -407,6 +407,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 992913590305811278, guid: efe6df530fcbf4747bb9b4bffd18f321,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992913590305811278, guid: efe6df530fcbf4747bb9b4bffd18f321,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 992913590305811278, guid: efe6df530fcbf4747bb9b4bffd18f321,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 32767
+      objectReference: {fileID: 0}
     - target: {fileID: 992913590305811279, guid: efe6df530fcbf4747bb9b4bffd18f321,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -541,6 +556,11 @@ PrefabInstance:
       propertyPath: uIManager
       value: 
       objectReference: {fileID: 1684002264}
+    - target: {fileID: 3982555439208144254, guid: a3492ceee0b0bbd49946553ee3b4f4c6,
+        type: 3}
+      propertyPath: timeBoost
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3982555439208144255, guid: a3492ceee0b0bbd49946553ee3b4f4c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -663,6 +683,11 @@ PrefabInstance:
     - target: {fileID: 5317770326758785310, guid: 862c435ffa69f6c4c86c98c742708b9a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317770326758785311, guid: 862c435ffa69f6c4c86c98c742708b9a,
+        type: 3}
+      propertyPath: coffe
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

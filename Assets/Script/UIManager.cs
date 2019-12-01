@@ -58,12 +58,12 @@ public class UIManager : MonoBehaviour
         visualCoin(level.getGM().coin);
         if (level.getIsWin())
         {
-            contText.text = "Menang";
+            contText.text = "File Has Been Accepted";
             image.sprite = sprites[0];
         }
         else
         {
-            contText.text = "Kalah";
+            contText.text = "You Fired";
             image.sprite = sprites[1];
         }
     }

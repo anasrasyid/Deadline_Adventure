@@ -8,6 +8,7 @@ public class PowerOutage : Obstacle
     private float timeScreen = 2f;
     private float times;
     private bool isClose;
+    public LevelManager level;
 
     public override void Action()
     {
@@ -41,6 +42,7 @@ public class PowerOutage : Obstacle
             {
                 StopCoroutine(StartSound());
                 Action();
+                level.DelProgress();
             }
         }
         else if(isClose)
