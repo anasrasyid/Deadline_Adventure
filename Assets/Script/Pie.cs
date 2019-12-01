@@ -17,6 +17,7 @@ public class Pie : MonoBehaviour
 
     void Update()
     {
+        speed += 0.1f;
         float distCovered = (Time.time - startTime) * speed;
         float fractionJourney = distCovered / journeyLength;
         transform.position = Vector3.Lerp(transform.position, target.position,fractionJourney);

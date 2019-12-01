@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using System.Collections;
 public class Badut : Obstacle
 {
     public GameObject pie;
     private GameObject pied;
     public Transform targets;
     public Transform from;
+    private Animator _animator;
 
     public override void Action()
     {
@@ -16,13 +18,23 @@ public class Badut : Obstacle
     void Start()
     {
         pied = null;
+        _animator = GetComponent<Animator>();
+    }
+
+    IEnumerator ThrowPie()
+    {
+        _animator.SetTrigger("Pie");
+        yield return new WaitForSeconds(0.420f);
+        Action();
+        time = timer;
+        StartCoroutine(SoundExit());
     }
 
     void Update()
     {
-        if (DoTrouble() && pied == null)
+        if (DoTrouble())
         {
-            Action();
+            StartCoroutine(ThrowPie());
         }
     }
 

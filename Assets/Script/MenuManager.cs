@@ -11,6 +11,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button Mute;
     [SerializeField] private Button Exit;
     [SerializeField] private string sceneGameplay;
+    private bool _isMute = false;
+    private float _audioVolume;
 
     // Start is called before the first frame update
     public void play()
@@ -23,7 +25,18 @@ public class MenuManager : MonoBehaviour
     }
     public void mute()
     {
-
+        if (!_isMute)
+        {
+            _isMute = true;
+            _audioVolume = AudioListener.volume;
+            if (_audioVolume <= 0.0001)
+                _audioVolume = 0.5f;
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = _audioVolume;
+        }
     }
     public void exit()
     {

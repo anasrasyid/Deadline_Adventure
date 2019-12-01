@@ -5,19 +5,21 @@ public class CanvasCondition : MonoBehaviour
 {
     public bool isWin;
     public int coin;
-    public Text contText, coinText, xText;
+    public Text contText, coinText;
+    public Sprite[] sprites;
+    public Image image;
     
     public void visContText()
     {
         if (isWin)
         {
             contText.text = "Menang";
-            xText.text = "Next"; 
+            image.sprite = sprites[0];
         }
         else
         {
             contText.text = "Kalah";
-            xText.text = "Restart";
+            image.sprite = sprites[1];
         }
     }
 
